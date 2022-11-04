@@ -1,0 +1,576 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="rustdoc" name="generator"><meta content="Most of the parsed html nodes are elements, except for text" name="description"><meta content="rust, rustlang, rust-lang, Element" name="keywords"><title>Element in html_parser - Rust</title><link as="font" crossorigin href="/SourceSerif4-Regular.ttf.woff2" rel="preload" type="font/woff2"><link as="font" crossorigin href="/FiraSans-Regular.woff2" rel="preload" type="font/woff2"><link as="font" crossorigin href="/FiraSans-Medium.woff2" rel="preload" type="font/woff2"><link as="font" crossorigin href="/SourceCodePro-Regular.ttf.woff2" rel="preload" type="font/woff2"><link as="font" crossorigin href="/SourceSerif4-Bold.ttf.woff2" rel="preload" type="font/woff2"><link as="font" crossorigin href="/SourceCodePro-Semibold.ttf.woff2" rel="preload" type="font/woff2"><link href="/normalize-20220420-1.62.0-nightly-879aff385.css" rel="stylesheet" type="text/css"><link href="/-/static/vendored.css?0-6-0-5eb7632-2022-10-16" media="all" rel="stylesheet" />
+
+    <link href="/rustdoc-20220420-1.62.0-nightly-879aff385.css" id="mainThemeStyle" rel="stylesheet" type="text/css"><link disabled href="/ayu-20220420-1.62.0-nightly-879aff385.css" rel="stylesheet" type="text/css"><link disabled href="/dark-20220420-1.62.0-nightly-879aff385.css" rel="stylesheet" type="text/css"><link href="/light-20220420-1.62.0-nightly-879aff385.css" id="themeStyle" rel="stylesheet" type="text/css"><script id="default-settings" ></script><script src="/storage-20220420-1.62.0-nightly-879aff385.js"></script><script src="../crates-20220420-1.62.0-nightly-879aff385.js"></script><script defer src="/main-20220420-1.62.0-nightly-879aff385.js"></script>
+    <noscript><link href="/noscript-20220420-1.62.0-nightly-879aff385.css" rel="stylesheet"></noscript><link href="/favicon-16x16-20220420-1.62.0-nightly-879aff385.png" rel="alternate icon" type="image/png"><link href="/favicon-32x32-20220420-1.62.0-nightly-879aff385.png" rel="alternate icon" type="image/png"><link href="/favicon-20220420-1.62.0-nightly-879aff385.svg" rel="icon" type="image/svg+xml"><link href="/-/static/rustdoc-2021-12-05.css?0-6-0-5eb7632-2022-10-16" media="all" rel="stylesheet" />
+
+    <link href="/-/static/opensearch.xml" rel="search" title="Docs.rs" type="application/opensearchdescription+xml" />
+
+    <link href="https://docs.rs/html_parser/latest/html_parser/struct.Element.html" rel="canonical" />
+
+    <script type="text/javascript">function applyTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+    }
+
+    window.addEventListener('storage', function (ev) {
+        if (ev.key === 'rustdoc-theme') {
+            applyTheme(ev.newValue);
+        }
+    });
+
+    // see ./storage-change-detection.html for details
+    window.addEventListener('message', function (ev) {
+        if (ev.data && ev.data.storage && ev.data.storage.key === 'rustdoc-theme') {
+            applyTheme(ev.data.storage.value);
+        }
+    });
+
+    applyTheme(window.localStorage.getItem('rustdoc-theme'));
+    </script>
+</head><body class="rustdoc-page">
+<div class="nav-container">
+    <div class="container">
+        <div aria-label="Main navigation" class="pure-menu pure-menu-horizontal" role="navigation">
+            <form action="/releases/search"
+                  class="landing-search-form-nav  "
+                  method="GET">
+
+
+                <a aria-label="Docs.rs" class="pure-menu-heading pure-menu-link docsrs-logo" href="/">
+                    <span title="Docs.rs"><span aria-hidden="true" class="fa-svg "><svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M290.8 48.6l78.4 29.7L288 109.5 206.8 78.3l78.4-29.7c1.8-.7 3.8-.7 5.7 0zM136 92.5V204.7c-1.3 .4-2.6 .8-3.9 1.3l-96 36.4C14.4 250.6 0 271.5 0 294.7V413.9c0 22.2 13.1 42.3 33.5 51.3l96 42.2c14.4 6.3 30.7 6.3 45.1 0L288 457.5l113.5 49.9c14.4 6.3 30.7 6.3 45.1 0l96-42.2c20.3-8.9 33.5-29.1 33.5-51.3V294.7c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-1.3-.5-2.6-.9-3.9-1.3V92.5c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-12.8-4.8-26.9-4.8-39.7 0l-96 36.4C150.4 48.4 136 69.3 136 92.5zM392 210.6l-82.4 31.2V152.6L392 121v89.6zM154.8 250.9l78.4 29.7L152 311.7 70.8 280.6l78.4-29.7c1.8-.7 3.8-.7 5.7 0zm18.8 204.4V354.8L256 323.2v95.9l-82.4 36.2zM421.2 250.9c1.8-.7 3.8-.7 5.7 0l78.4 29.7L424 311.7l-81.2-31.1 78.4-29.7zM523.2 421.2l-77.6 34.1V354.8L528 323.2v90.7c0 3.2-1.9 6-4.8 7.3z"/></svg></span></span>
+                    <span class="title">Docs.rs</span>
+                </a>
+                <ul class="pure-menu-list"><li class="pure-menu-item pure-menu-has-children">
+                    <a class="pure-menu-link crate-name" href="#" title="A simple and general purpose html&#x2F;xhtml parser">
+                        <span aria-hidden="true" class="fa-svg "><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1v-188L288 246.6v188z"/></svg></span>
+                        <span class="title">html_parser-0.6.3</span>
+                    </a>
+
+
+                    <div class="pure-menu-children package-details-menu">
+
+                        <ul class="pure-menu-list menu-item-divided">
+                            <li class="pure-menu-heading" id="crate-title">
+                                html_parser 0.6.3
+                                <span class="fa-svg fa-svg-fw" id="clipboard" title="Copy crate name and version information"><svg aria-label="Copy to clipboard" fill="currentColor" height="25" viewBox="0 0 24 25" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 20h2v3c0 1-1 2-2 2H2c-.998 0-2-1-2-2V5c0-.911.755-1.667 1.667-1.667h5A3.323 3.323 0 0110 0a3.323 3.323 0 013.333 3.333h5C19.245 3.333 20 4.09 20 5v8.333h-2V9H2v14h16v-3zM3 7h14c0-.911-.793-1.667-1.75-1.667H13.5c-.957 0-1.75-.755-1.75-1.666C11.75 2.755 10.957 2 10 2s-1.75.755-1.75 1.667c0 .911-.793 1.666-1.75 1.666H4.75C3.793 5.333 3 6.09 3 7z"/><path d="M4 19h6v2H4zM12 11H4v2h8zM4 17h4v-2H4zM15 15v-3l-4.5 4.5L15 21v-3l8.027-.032L23 15z"/></svg></span>
+                            </li><li class="pure-menu-item">
+                            <a class="pure-menu-link description" href="/html_parser/0.6.3/html_parser/struct.Element.html" id="permalink" title="Get a link to this specific version">
+                                <span aria-hidden="true" class="fa-svg "><svg viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg></span> Permalink
+                            </a>
+                        </li><li class="pure-menu-item">
+                            <a class="pure-menu-link description" href="/crate/html_parser/latest" title="See html_parser in docs.rs">
+                                <span aria-hidden="true" class="fa-svg fa-svg-fw "><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1v-188L288 246.6v188z"/></svg></span> Docs.rs crate page
+                            </a>
+                        </li>
+
+                            <li class="pure-menu-item">
+                                <a class="pure-menu-link" href="/crate/html_parser/latest">
+                                    <span aria-hidden="true" class="fa-svg fa-svg-fw "><svg viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M117.9 62.4c-16.8-5.6-25.8-23.7-20.2-40.5s23.7-25.8 40.5-20.2l113 37.7C265 15.8 290.7 0 320 0c44.2 0 80 35.8 80 80c0 3-.2 5.9-.5 8.8l122.6 40.9c16.8 5.6 25.8 23.7 20.2 40.5s-23.7 25.8-40.5 20.2L366.4 145.2c-4.5 3.2-9.3 5.9-14.4 8.2V480c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-21-9.2-37.2-27-44.2-49l-125.9-42zm396.3 211c-.4-.8-1.3-1.3-2.2-1.3s-1.7 .5-2.2 1.3L435.1 416H588.9L514.2 273.3zM512 224c18.8 0 36 10.4 44.7 27l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C594.9 498.6 562.2 512 512 512s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L467.3 251c8.7-16.6 25.9-27 44.7-27zM128 144c-.9 0-1.7 .5-2.2 1.3L51.1 288H204.9L130.2 145.3c-.4-.8-1.3-1.3-2.2-1.3zm44.7-21l77.8 148.5c3.1 5.8 6.1 14 5.5 23.8c-.7 12.1-4.8 35.2-24.8 55.1C210.9 370.6 178.2 384 128 384s-82.9-13.4-103.2-33.5c-20-20-24.2-43-24.8-55.1c-.6-9.8 2.5-18 5.5-23.8L83.3 123C92 106.4 109.2 96 128 96s36 10.4 44.7 27z"/></svg></span> MIT
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="pure-g menu-item-divided">
+                            <div class="pure-u-1-2 right-border">
+                                <ul class="pure-menu-list">
+                                    <li class="pure-menu-heading">Links</li>
+
+                                    <li class="pure-menu-item">
+                                        <a class="pure-menu-link" href="https:&#x2F;&#x2F;github.com&#x2F;mathiversen&#x2F;html-parser">
+                                            <span aria-hidden="true" class="fa-svg fa-svg-fw "><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M80 104c13.3 0 24-10.7 24-24s-10.7-24-24-24S56 66.7 56 80s10.7 24 24 24zm80-24c0 32.8-19.7 61-48 73.3v87.8c18.8-10.9 40.7-17.1 64-17.1h96c35.3 0 64-28.7 64-64v-6.7C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3V160c0 70.7-57.3 128-128 128H176c-35.3 0-64 28.7-64 64v6.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3V352 153.3C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm232 0c0-13.3-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24s24-10.7 24-24zM80 456c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24z"/></svg></span> Repository
+                                        </a>
+                                    </li><li class="pure-menu-item">
+                                    <a class="pure-menu-link" href="https://crates.io/crates/html_parser" title="See html_parser in crates.io">
+                                        <span aria-hidden="true" class="fa-svg fa-svg-fw "><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1v-188L288 246.6v188z"/></svg></span> Crates.io
+                                    </a>
+                                </li>
+
+
+                                    <li class="pure-menu-item">
+                                        <a class="pure-menu-link" href="/crate/html_parser/latest/source/" title="Browse source of html_parser-0.6.3">
+                                            <span aria-hidden="true" class="fa-svg fa-svg-fw "><svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M88.7 223.8L0 375.8V96C0 60.7 28.7 32 64 32H181.5c17 0 33.3 6.7 45.3 18.7l26.5 26.5c12 12 28.3 18.7 45.3 18.7H416c35.3 0 64 28.7 64 64v32H144c-22.8 0-43.8 12.1-55.3 31.8zm27.6 16.1C122.1 230 132.6 224 144 224H544c11.5 0 22 6.1 27.7 16.1s5.7 22.2-.1 32.1l-112 192C453.9 474 443.4 480 432 480H32c-11.5 0-22-6.1-27.7-16.1s-5.7-22.2 .1-32.1l112-192z"/></svg></span> Source
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                            <div class="pure-u-1-2">
+                                <ul class="pure-menu-list">
+                                    <li class="pure-menu-heading">Owners</li><li class="pure-menu-item">
+                                    <a class="pure-menu-link" href="https://crates.io/users/mathiversen">
+                                        <span aria-hidden="true" class="fa-svg fa-svg-fw "><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></span> mathiversen
+                                    </a>
+                                </li></ul>
+                            </div>
+                        </div>
+
+                        <div class="pure-g menu-item-divided">
+                            <div class="pure-u-1-2 right-border">
+                                <ul class="pure-menu-list">
+                                    <li class="pure-menu-heading">Dependencies</li>
+
+
+                                    <li class="pure-menu-item">
+                                        <div class="pure-menu pure-menu-scrollable sub-menu" tabindex="-1">
+                                            <ul class="pure-menu-list"><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/pest/^2.1.3">
+                                                    pest ^2.1.3
+                                                    <i class="dependencies normal">normal</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/pest_derive/^2.1.0">
+                                                    pest_derive ^2.1.0
+                                                    <i class="dependencies normal">normal</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/serde/^1.0.136">
+                                                    serde ^1.0.136
+                                                    <i class="dependencies normal">normal</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/serde_derive/^1.0.136">
+                                                    serde_derive ^1.0.136
+                                                    <i class="dependencies normal">normal</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/serde_json/^1.0.79">
+                                                    serde_json ^1.0.79
+                                                    <i class="dependencies normal">normal</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/thiserror/^1.0">
+                                                    thiserror ^1.0
+                                                    <i class="dependencies normal">normal</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/criterion/^0.3.5">
+                                                    criterion ^0.3.5
+                                                    <i class="dependencies dev">dev</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/indoc/^1.0.4">
+                                                    indoc ^1.0.4
+                                                    <i class="dependencies dev">dev</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/insta/^1.14.0">
+                                                    insta ^1.14.0
+                                                    <i class="dependencies dev">dev</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/reqwest/^0.11.10">
+                                                    reqwest ^0.11.10
+                                                    <i class="dependencies dev">dev</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/structopt/^0.3.26">
+                                                    structopt ^0.3.26
+                                                    <i class="dependencies dev">dev</i>
+                                                </a>
+                                            </li><li class="pure-menu-item">
+                                                <a class="pure-menu-link" href="/tempfile/^3.3.0">
+                                                    tempfile ^3.3.0
+                                                    <i class="dependencies dev">dev</i>
+                                                </a>
+                                            </li></ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pure-u-1-2">
+                                <ul class="pure-menu-list">
+                                    <li class="pure-menu-heading">Versions</li>
+
+                                    <li class="pure-menu-item">
+                                        <div class="pure-menu pure-menu-scrollable sub-menu" tabindex="-1">
+                                            <ul class="pure-menu-list">
+
+
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.6.3/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.6.3
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.6.2/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.6.2
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.6.0/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.6.0
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.5.0/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.5.0
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.4.2/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.4.2
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.4.1/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.4.1
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.4.0/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.4.0
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.3.0/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.3.0
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.2.2/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.2.2
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.2.1/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.2.1
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.2.0/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.2.0
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="pure-menu-item">
+                                                    <a
+                                                            class="pure-menu-link"
+
+                                                            data-fragment="retain"
+                                                            href="/crate/html_parser/0.1.0/target-redirect/html_parser/struct.Element.html"
+
+                                                            rel="nofollow"
+                                                    >
+
+                                                        0.1.0
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pure-g">
+                            <div class="pure-u-1">
+                                <ul class="pure-menu-list">
+                                    <li>
+                                        <a class="pure-menu-link" href="/crate/html_parser/latest">
+                                            <b>65.52%</b>
+                                            of the crate is documented
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div></div>
+                </li><li class="pure-menu-item pure-menu-has-children">
+                    <a aria-label="Platform" class="pure-menu-link" href="#">
+                        <span aria-hidden="true" class="fa-svg "><svg viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25c-2.3-5.3-4.8-10.5-7.6-15.5L304 89.4c-3-5-6.3-9.9-9.8-14.6c-5.7-7.6-15.7-10.1-24.7-7.1l-28.2 9.3c-10.7-8.8-23-16-36.2-20.9L199 27.1c-1.9-9.3-9.1-16.7-18.5-17.8C173.7 8.4 166.9 8 160 8s-13.7 .4-20.4 1.2c-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9L50.5 67.8c-9-3-19-.5-24.7 7.1c-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.6c-3.7 8.7-.9 18.6 6.2 25l22.2 19.8C32.6 161.9 32 168.9 32 176s.6 14.1 1.7 20.9L11.5 216.7c-7.1 6.3-9.9 16.2-6.2 25c2.3 5.3 4.8 10.5 7.6 15.6l3 5.2c3 5.1 6.3 9.9 9.9 14.6c5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8c6.7 .8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1c3.5-4.7 6.8-9.5 9.8-14.6l3.1-5.4c2.8-5 5.3-10.2 7.6-15.5c3.7-8.7 .9-18.6-6.2-25l-22.2-19.8c1.1-6.8 1.7-13.8 1.7-20.9s-.6-14.1-1.7-20.9l22.2-19.8zM208 176c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM504.7 500.5c6.3 7.1 16.2 9.9 25 6.2c5.3-2.3 10.5-4.8 15.5-7.6l5.4-3.1c5-3 9.9-6.3 14.6-9.8c7.6-5.7 10.1-15.7 7.1-24.7l-9.3-28.2c8.8-10.7 16-23 20.9-36.2l29.1-6.1c9.3-1.9 16.7-9.1 17.8-18.5c.8-6.7 1.2-13.5 1.2-20.4s-.4-13.7-1.2-20.4c-1.1-9.4-8.6-16.6-17.8-18.5L583.9 307c-5-13.3-12.1-25.5-20.9-36.2l9.3-28.2c3-9 .5-19-7.1-24.7c-4.7-3.5-9.6-6.8-14.6-9.9l-5.3-3c-5-2.8-10.2-5.3-15.6-7.6c-8.7-3.7-18.6-.9-25 6.2l-19.8 22.2c-6.8-1.1-13.8-1.7-20.9-1.7s-14.1 .6-20.9 1.7l-19.8-22.2c-6.3-7.1-16.2-9.9-25-6.2c-5.3 2.3-10.5 4.8-15.6 7.6l-5.2 3c-5.1 3-9.9 6.3-14.6 9.9c-7.6 5.7-10.1 15.7-7.1 24.7l9.3 28.2c-8.8 10.7-16 23-20.9 36.2L315.1 313c-9.3 1.9-16.7 9.1-17.8 18.5c-.8 6.7-1.2 13.5-1.2 20.4s.4 13.7 1.2 20.4c1.1 9.4 8.6 16.6 17.8 18.5l29.1 6.1c5 13.3 12.1 25.5 20.9 36.2l-9.3 28.2c-3 9-.5 19 7.1 24.7c4.7 3.5 9.5 6.8 14.6 9.8l5.4 3.1c5 2.8 10.2 5.3 15.5 7.6c8.7 3.7 18.6 .9 25-6.2l19.8-22.2c6.8 1.1 13.8 1.7 20.9 1.7s14.1-.6 20.9-1.7l19.8 22.2zM464 400c-26.5 0-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48s-21.5 48-48 48z"/></svg></span>
+                        <span class="title">Platform</span>
+                    </a>
+
+
+                    <ul class="pure-menu-children"><li class="pure-menu-item">
+                        <a class="pure-menu-link" data-fragment="retain" href="/crate/html_parser/latest/target-redirect/x86_64-unknown-linux-gnu/html_parser/struct.Element.html" rel="nofollow">x86_64-unknown-linux-gnu</a>
+                    </li><li class="pure-menu-item">
+                        <a class="pure-menu-link" data-fragment="retain" href="/crate/html_parser/latest/target-redirect/i686-pc-windows-msvc/html_parser/struct.Element.html" rel="nofollow">i686-pc-windows-msvc</a>
+                    </li><li class="pure-menu-item">
+                        <a class="pure-menu-link" data-fragment="retain" href="/crate/html_parser/latest/target-redirect/x86_64-pc-windows-msvc/html_parser/struct.Element.html" rel="nofollow">x86_64-pc-windows-msvc</a>
+                    </li><li class="pure-menu-item">
+                        <a class="pure-menu-link" data-fragment="retain" href="/crate/html_parser/latest/target-redirect/x86_64-apple-darwin/html_parser/struct.Element.html" rel="nofollow">x86_64-apple-darwin</a>
+                    </li><li class="pure-menu-item">
+                        <a class="pure-menu-link" data-fragment="retain" href="/crate/html_parser/latest/target-redirect/i686-unknown-linux-gnu/html_parser/struct.Element.html" rel="nofollow">i686-unknown-linux-gnu</a>
+                    </li></ul>
+                </li><li class="pure-menu-item">
+                    <a class="pure-menu-link" href="/crate/html_parser/latest/features" title="Browse available feature flags of html_parser-0.6.3">
+                        <span aria-hidden="true" class="fa-svg "><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M64 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32C0 14.3 14.3 0 32 0S64 14.3 64 32zm40.8 302.8c-3 .9-6 1.7-8.8 2.6V13.5C121.5 6.4 153 0 184 0c36.5 0 68.3 9.1 95.6 16.9l1.3 .4C309.4 25.4 333.3 32 360 32c26.8 0 52.9-6.8 73-14.1c9.9-3.6 17.9-7.2 23.4-9.8c2.7-1.3 4.8-2.4 6.2-3.1c.7-.4 1.1-.6 1.4-.8l.2-.1c9.9-5.6 22.1-5.6 31.9 .2S512 20.6 512 32V288c0 12.1-6.8 23.2-17.7 28.6L480 288c14.3 28.6 14.3 28.6 14.3 28.6l0 0 0 0-.1 0-.2 .1-.7 .4c-.6 .3-1.5 .7-2.5 1.2c-2.2 1-5.2 2.4-9 4c-7.7 3.3-18.5 7.6-31.5 11.9C424.5 342.9 388.8 352 352 352c-37 0-65.2-9.4-89-17.3l-1-.3c-24-8-43.7-14.4-70-14.4c-27.5 0-60.1 7-87.2 14.8z"/></svg></span>
+                        <span class="title">Feature flags</span>
+                    </a>
+                </li>
+
+                </ul><div class="spacer"></div>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item pure-menu-has-children">
+                        <a class="pure-menu-link" href="#">
+                            <span title="Releases"><span aria-hidden="true" class="fa-svg "><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.3 5.4c-25.9 5.9-49.9 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z"/></svg></span></span>
+                            <span class="title">Releases</span>
+                        </a>
+
+                        <ul class="pure-menu-children">
+
+                            <li class="pure-menu-item">
+                                <a class="pure-menu-link " href="&#x2F;releases" >
+                                    All Releases
+                                </a>
+                            </li>
+
+
+                            <li class="pure-menu-item">
+                                <a class="pure-menu-link " href="&#x2F;releases&#x2F;stars" >
+                                    Releases by Stars
+                                </a>
+                            </li>
+
+
+                            <li class="pure-menu-item">
+                                <a class="pure-menu-link " href="&#x2F;releases&#x2F;recent-failures" >
+                                    Recent Build Failures
+                                </a>
+                            </li>
+
+
+                            <li class="pure-menu-item">
+                                <a class="pure-menu-link " href="&#x2F;releases&#x2F;failures" >
+                                    Build Failures by Stars
+                                </a>
+                            </li>
+
+
+                            <li class="pure-menu-item">
+                                <a class="pure-menu-link " href="&#x2F;releases&#x2F;activity" >
+                                    Release Activity
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li><li class="pure-menu-item pure-menu-has-children">
+                    <a aria-label="Rust" class="pure-menu-link" href="#">Rust</a>
+                    <ul class="pure-menu-children">
+
+                        <li class="pure-menu-item">
+                            <a class="pure-menu-link " href="https:&#x2F;&#x2F;www.rust-lang.org&#x2F;" target="_blank">
+                                Rust website
+                            </a>
+                        </li>
+
+
+                        <li class="pure-menu-item">
+                            <a class="pure-menu-link " href="https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;book&#x2F;" target="_blank">
+                                The Book
+                            </a>
+                        </li>
+
+
+
+                        <li class="pure-menu-item">
+                            <a class="pure-menu-link " href="https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;std&#x2F;" target="_blank">
+                                Standard Library API Reference
+                            </a>
+                        </li>
+
+
+
+                        <li class="pure-menu-item">
+                            <a class="pure-menu-link " href="https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;rust-by-example&#x2F;" target="_blank">
+                                Rust by Example
+                            </a>
+                        </li>
+
+
+
+                        <li class="pure-menu-item">
+                            <a class="pure-menu-link " href="http:&#x2F;&#x2F;doc.crates.io&#x2F;guide.html" target="_blank">
+                                The Cargo Guide
+                            </a>
+                        </li>
+
+
+
+                        <li class="pure-menu-item">
+                            <a class="pure-menu-link " href="https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;nightly&#x2F;clippy" target="_blank">
+                                Clippy Documentation
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                </ul>
+
+                <div id="search-input-nav">
+                    <label for="nav-search">
+                        <span aria-hidden="true" class="fa-svg "><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                    </label>
+
+
+
+                    <input aria-label="Find crate by search query" id="nav-search" name="query" placeholder="Find crate" tabindex="-1"
+                           type="text">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="rustdoc struct container-rustdoc" id="rustdoc_body_wrapper" tabindex="-1"><script src="/-/static/menu.js?0-6-0-5eb7632-2022-10-16" type="text/javascript"></script>
+    <script src="/-/static/index.js?0-6-0-5eb7632-2022-10-16" type="text/javascript"></script>
+
+    <iframe height="0" src="/-/storage-change-detection.html" style="display: none" width="0"></iframe><div class="docs-rs-footer">
+        <a href="/about">About docs.rs</a>
+        <a href="https://foundation.rust-lang.org/policies/privacy-policy/#docs.rs">Privacy policy</a>
+        <a href="/releases/queue">Build queue</a>
+    </div>
+    <!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../html_parser/index.html"><div class="logo-container"><img alt="logo" class="rust-logo" src="/rust-logo-20220420-1.62.0-nightly-879aff385.svg"></div>
+    </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../html_parser/index.html"><div class="logo-container"><img alt="logo" class="rust-logo" src="/rust-logo-20220420-1.62.0-nightly-879aff385.svg"></div>
+    </a><h2 class="location"><a href="#">Element</a></h2><div class="sidebar-elems"><section><div class="block"><h3 class="sidebar-title"><a href="#fields">Fields</a></h3><ul><li><a href="#structfield.attributes">attributes</a></li><li><a href="#structfield.children">children</a></li><li><a href="#structfield.classes">classes</a></li><li><a href="#structfield.id">id</a></li><li><a href="#structfield.name">name</a></li><li><a href="#structfield.variant">variant</a></li></ul></div><div class="block"><h3 class="sidebar-title"><a href="#trait-implementations">Trait Implementations</a></h3><ul><li><a href="#impl-Clone">Clone</a></li><li><a href="#impl-Debug">Debug</a></li><li><a href="#impl-Default">Default</a></li><li><a href="#impl-PartialEq%3CElement%3E">PartialEq&lt;Element&gt;</a></li><li><a href="#impl-Serialize">Serialize</a></li><li><a href="#impl-StructuralPartialEq">StructuralPartialEq</a></li></ul></div><div class="block"><h3 class="sidebar-title"><a href="#synthetic-implementations">Auto Trait Implementations</a></h3><ul><li><a href="#impl-RefUnwindSafe">RefUnwindSafe</a></li><li><a href="#impl-Send">Send</a></li><li><a href="#impl-Sync">Sync</a></li><li><a href="#impl-Unpin">Unpin</a></li><li><a href="#impl-UnwindSafe">UnwindSafe</a></li></ul></div><div class="block"><h3 class="sidebar-title"><a href="#blanket-implementations">Blanket Implementations</a></h3><ul><li><a href="#impl-Any">Any</a></li><li><a href="#impl-Borrow%3CT%3E">Borrow&lt;T&gt;</a></li><li><a href="#impl-BorrowMut%3CT%3E">BorrowMut&lt;T&gt;</a></li><li><a href="#impl-From%3CT%3E">From&lt;T&gt;</a></li><li><a href="#impl-Into%3CU%3E">Into&lt;U&gt;</a></li><li><a href="#impl-ToOwned">ToOwned</a></li><li><a href="#impl-TryFrom%3CU%3E">TryFrom&lt;U&gt;</a></li><li><a href="#impl-TryInto%3CU%3E">TryInto&lt;U&gt;</a></li></ul></div></section><h2 class="location"><a href="index.html">In html_parser</a></h2><div data-name="Element" data-relpath="" data-ty="struct" id="sidebar-vars"></div><script defer src="sidebar-items-20220420-1.62.0-nightly-879aff385.js"></script></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../html_parser/index.html"><img alt="logo" class="rust-logo" src="/rust-logo-20220420-1.62.0-nightly-879aff385.svg"></a><nav class="sub"><div class="theme-picker hidden"><button aria-haspopup="menu" aria-label="Pick another theme!" id="theme-picker" title="themes"><img alt="Pick another theme!" height="22" src="/brush-20220420-1.62.0-nightly-879aff385.svg" width="22"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input autocomplete="off" class="search-input" name="search" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" spellcheck="false" type="search"><button id="help-button" title="help" type="button">?</button><a href="../settings.html" id="settings-menu" title="settings"><img alt="Change settings" height="22" src="/wheel-20220420-1.62.0-nightly-879aff385.svg" width="22"></a></div></form></nav></div><section class="content" id="main-content"><div class="main-heading">
+        <h1 class="fqn"><span class="in-band">Struct <a href="index.html">html_parser</a>::<wbr><a class="struct" href="#">Element</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img alt="Copy item path" height="18" src="/clipboard-20220420-1.62.0-nightly-879aff385.svg" width="19"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/html_parser/dom/element.rs.html#23-46">source</a> · <a href="javascript:void(0)" id="toggle-all-docs" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><pre class="rust struct"><code>pub struct Element {
+    pub id: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;,
+    pub name: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
+    pub variant: <a class="enum" href="enum.ElementVariant.html" title="enum html_parser::ElementVariant">ElementVariant</a>,
+    pub attributes: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>, <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;&gt;,
+    pub classes: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;,
+    pub children: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="enum.Node.html" title="enum html_parser::Node">Node</a>&gt;,
+}</code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Most of the parsed html nodes are elements, except for text</p>
+    </div></details><h2 class="fields small-section-header" id="fields">Fields<a class="anchor" href="#fields"></a></h2><span class="structfield small-section-header" id="structfield.id"><a class="anchor field" href="#structfield.id"></a><code>id: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code></span><div class="docblock"><p>The id of the element</p>
+    </div><span class="structfield small-section-header" id="structfield.name"><a class="anchor field" href="#structfield.name"></a><code>name: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a></code></span><div class="docblock"><p>The name / tag of the element</p>
+    </div><span class="structfield small-section-header" id="structfield.variant"><a class="anchor field" href="#structfield.variant"></a><code>variant: <a class="enum" href="enum.ElementVariant.html" title="enum html_parser::ElementVariant">ElementVariant</a></code></span><div class="docblock"><p>The element variant, if it is of type void or not</p>
+    </div><span class="structfield small-section-header" id="structfield.attributes"><a class="anchor field" href="#structfield.attributes"></a><code>attributes: <a class="struct" href="https://doc.rust-lang.org/nightly/std/collections/hash/map/struct.HashMap.html" title="struct std::collections::hash::map::HashMap">HashMap</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>, <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;&gt;</code></span><div class="docblock"><p>All of the elements attributes, except id and class</p>
+    </div><span class="structfield small-section-header" id="structfield.classes"><a class="anchor field" href="#structfield.classes"></a><code>classes: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>&gt;</code></span><div class="docblock"><p>All of the elements classes</p>
+    </div><span class="structfield small-section-header" id="structfield.children"><a class="anchor field" href="#structfield.children"></a><code>children: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="enum" href="enum.Node.html" title="enum html_parser::Node">Node</a>&gt;</code></span><div class="docblock"><p>All of the elements child nodes</p>
+    </div><h2 class="small-section-header" id="trait-implementations">Trait Implementations<a class="anchor" href="#trait-implementations"></a></h2><div id="trait-implementations-list"><details class="rustdoc-toggle implementors-toggle" open><summary><section class="impl has-srclink" id="impl-Clone"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#impl-Clone"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.clone"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#method.clone"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(&amp;self) -&gt; <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h4></section></summary><div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+    </div></details><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.clone_from"><span class="rightside"><span class="since" title="Stable since Rust version 1.0.0">1.0.0</span> · <a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/clone.rs.html#133-135">source</a></span><a class="anchor" href="#method.clone_from"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</h4></section></summary><div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle" open><summary><section class="impl has-srclink" id="impl-Debug"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#impl-Debug"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.fmt"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#method.fmt"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>&lt;'_&gt;) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></h4></section></summary><div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle" open><summary><section class="impl has-srclink" id="impl-Default"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#48-59">source</a></span><a class="anchor" href="#impl-Default"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.default"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#49-58">source</a></span><a class="anchor" href="#method.default"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">default</a>() -&gt; Self</h4></section></summary><div class='docblock'><p>Returns the “default value” for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle" open><summary><section class="impl has-srclink" id="impl-PartialEq%3CElement%3E"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#impl-PartialEq%3CElement%3E"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a>&lt;<a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a>&gt; for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.eq"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#method.eq"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">eq</a>(&amp;self, other: &amp;<a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></h4></section></summary><div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used
+        by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+    </div></details><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.ne"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#method.ne"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne">ne</a>(&amp;self, other: &amp;<a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></h4></section></summary><div class='docblock'><p>This method tests for <code>!=</code>.</p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle" open><summary><section class="impl has-srclink" id="impl-Serialize"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#impl-Serialize"></a><h3 class="code-header in-band">impl <a class="trait" href="https://docs.rs/serde/1.0.136/serde/ser/trait.Serialize.html" title="trait serde::ser::Serialize">Serialize</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.serialize"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#method.serialize"></a><h4 class="code-header">fn <a class="fnname" href="https://docs.rs/serde/1.0.136/serde/ser/trait.Serialize.html#tymethod.serialize">serialize</a>&lt;__S&gt;(&amp;self, __serializer: __S) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;__S::<a class="associatedtype" href="https://docs.rs/serde/1.0.136/serde/ser/trait.Serializer.html#associatedtype.Ok" title="type serde::ser::Serializer::Ok">Ok</a>, __S::<a class="associatedtype" href="https://docs.rs/serde/1.0.136/serde/ser/trait.Serializer.html#associatedtype.Error" title="type serde::ser::Serializer::Error">Error</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;__S: <a class="trait" href="https://docs.rs/serde/1.0.136/serde/ser/trait.Serializer.html" title="trait serde::ser::Serializer">Serializer</a>,&nbsp;</span></h4></section></summary><div class='docblock'><p>Serialize this value into the given Serde serializer. <a href="https://docs.rs/serde/1.0.136/serde/ser/trait.Serialize.html#tymethod.serialize">Read more</a></p>
+    </div></details></div></details><section class="impl has-srclink" id="impl-StructuralPartialEq"><span class="rightside"><a class="srclink" href="../src/html_parser/dom/element.rs.html#21">source</a></span><a class="anchor" href="#impl-StructuralPartialEq"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.StructuralPartialEq.html" title="trait core::marker::StructuralPartialEq">StructuralPartialEq</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section></div><h2 class="small-section-header" id="synthetic-implementations">Auto Trait Implementations<a class="anchor" href="#synthetic-implementations"></a></h2><div id="synthetic-implementations-list"><section class="impl has-srclink" id="impl-RefUnwindSafe"><a class="anchor" href="#impl-RefUnwindSafe"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/panic/unwind_safe/trait.RefUnwindSafe.html" title="trait core::panic::unwind_safe::RefUnwindSafe">RefUnwindSafe</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section><section class="impl has-srclink" id="impl-Send"><a class="anchor" href="#impl-Send"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section><section class="impl has-srclink" id="impl-Sync"><a class="anchor" href="#impl-Sync"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section><section class="impl has-srclink" id="impl-Unpin"><a class="anchor" href="#impl-Unpin"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Unpin.html" title="trait core::marker::Unpin">Unpin</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section><section class="impl has-srclink" id="impl-UnwindSafe"><a class="anchor" href="#impl-UnwindSafe"></a><h3 class="code-header in-band">impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/panic/unwind_safe/trait.UnwindSafe.html" title="trait core::panic::unwind_safe::UnwindSafe">UnwindSafe</a> for <a class="struct" href="struct.Element.html" title="struct html_parser::Element">Element</a></h3></section></div><h2 class="small-section-header" id="blanket-implementations">Blanket Implementations<a class="anchor" href="#blanket-implementations"></a></h2><div id="blanket-implementations-list"><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-Any"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/any.rs.html#132-136">source</a></span><a class="anchor" href="#impl-Any"></a><h3 class="code-header in-band">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html" title="trait core::any::Any">Any</a> for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: 'static + ?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,&nbsp;</span></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.type_id"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/any.rs.html#133">source</a></span><a class="anchor" href="#method.type_id"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html#tymethod.type_id">type_id</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/nightly/core/any/struct.TypeId.html" title="struct core::any::TypeId">TypeId</a></h4></section></summary><div class='docblock'><p>Gets the <code>TypeId</code> of <code>self</code>. <a href="https://doc.rust-lang.org/nightly/core/any/trait.Any.html#tymethod.type_id">Read more</a></p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-Borrow%3CT%3E"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/borrow.rs.html#209-214">source</a></span><a class="anchor" href="#impl-Borrow%3CT%3E"></a><h3 class="code-header in-band">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html" title="trait core::borrow::Borrow">Borrow</a>&lt;T&gt; for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: ?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,&nbsp;</span></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.borrow"><span class="rightside"><span class="since" title="const unstable">const: <a href="https://github.com/rust-lang/rust/issues/91522" title="Tracking issue for const_borrow">unstable</a></span> · <a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/borrow.rs.html#211">source</a></span><a class="anchor" href="#method.borrow"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html#tymethod.borrow">borrow</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T</h4></section></summary><div class='docblock'><p>Immutably borrows from an owned value. <a href="https://doc.rust-lang.org/nightly/core/borrow/trait.Borrow.html#tymethod.borrow">Read more</a></p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-BorrowMut%3CT%3E"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/borrow.rs.html#218-222">source</a></span><a class="anchor" href="#impl-BorrowMut%3CT%3E"></a><h3 class="code-header in-band">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/borrow/trait.BorrowMut.html" title="trait core::borrow::BorrowMut">BorrowMut</a>&lt;T&gt; for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: ?<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a>,&nbsp;</span></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.borrow_mut"><span class="rightside"><span class="since" title="const unstable">const: <a href="https://github.com/rust-lang/rust/issues/91522" title="Tracking issue for const_borrow">unstable</a></span> · <a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/borrow.rs.html#219">source</a></span><a class="anchor" href="#method.borrow_mut"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/borrow/trait.BorrowMut.html#tymethod.borrow_mut">borrow_mut</a>(&amp;mut self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>T</h4></section></summary><div class='docblock'><p>Mutably borrows from an owned value. <a href="https://doc.rust-lang.org/nightly/core/borrow/trait.BorrowMut.html#tymethod.borrow_mut">Read more</a></p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-From%3CT%3E"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#557-562">source</a></span><a class="anchor" href="#impl-From%3CT%3E"></a><h3 class="code-header in-band">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;T&gt; for T</h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.from"><span class="rightside"><span class="since" title="const unstable">const: <a href="https://github.com/rust-lang/rust/issues/88674" title="Tracking issue for const_convert">unstable</a></span> · <a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#559">source</a></span><a class="anchor" href="#method.from"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from">from</a>(t: T) -&gt; T</h4></section></summary><div class="docblock"><p>Returns the argument unchanged.</p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-Into%3CU%3E"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#541-552">source</a></span><a class="anchor" href="#impl-Into%3CU%3E"></a><h3 class="code-header in-band">impl&lt;T, U&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;U&gt; for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;T&gt;,&nbsp;</span></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.into"><span class="rightside"><span class="since" title="const unstable">const: <a href="https://github.com/rust-lang/rust/issues/88674" title="Tracking issue for const_convert">unstable</a></span> · <a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#549">source</a></span><a class="anchor" href="#method.into"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#tymethod.into">into</a>(self) -&gt; U</h4></section></summary><div class="docblock"><p>Calls <code>U::from(self)</code>.</p>
+        <p>That is, this conversion is whatever the implementation of
+            <code><a href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="From">From</a>&lt;T&gt; for U</code> chooses to do.</p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-ToOwned"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/alloc/borrow.rs.html#84-96">source</a></span><a class="anchor" href="#impl-ToOwned"></a><h3 class="code-header in-band">impl&lt;T&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html" title="trait alloc::borrow::ToOwned">ToOwned</a> for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>,&nbsp;</span></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle" open><summary><section class="associatedtype trait-impl has-srclink" id="associatedtype.Owned"><a class="anchor" href="#associatedtype.Owned"></a><h4 class="code-header">type <a class="associatedtype" href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html#associatedtype.Owned">Owned</a> = T</h4></section></summary><div class='docblock'><p>The resulting type after obtaining ownership.</p>
+    </div></details><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.to_owned"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/alloc/borrow.rs.html#89">source</a></span><a class="anchor" href="#method.to_owned"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html#tymethod.to_owned">to_owned</a>(&amp;self) -&gt; T</h4></section></summary><div class='docblock'><p>Creates owned data from borrowed data, usually by cloning. <a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html#tymethod.to_owned">Read more</a></p>
+    </div></details><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.clone_into"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/alloc/borrow.rs.html#93">source</a></span><a class="anchor" href="#method.clone_into"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html#method.clone_into">clone_into</a>(&amp;self, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>T)</h4></section></summary><span class="item-info"><div class="stab unstable"><span class="emoji">🔬</span> This is a nightly-only experimental API. (<code>toowned_clone_into</code>)</div></span><div class='docblock'><p>Uses borrowed data to replace owned data, usually by cloning. <a href="https://doc.rust-lang.org/nightly/alloc/borrow/trait.ToOwned.html#method.clone_into">Read more</a></p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-TryFrom%3CU%3E"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#598-607">source</a></span><a class="anchor" href="#impl-TryFrom%3CU%3E"></a><h3 class="code-header in-band">impl&lt;T, U&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;U&gt; for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;T&gt;,&nbsp;</span></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle" open><summary><section class="associatedtype trait-impl has-srclink" id="associatedtype.Error"><a class="anchor" href="#associatedtype.Error"></a><h4 class="code-header">type <a class="associatedtype" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html#associatedtype.Error">Error</a> = <a class="enum" href="https://doc.rust-lang.org/nightly/core/convert/enum.Infallible.html" title="enum core::convert::Infallible">Infallible</a></h4></section></summary><div class='docblock'><p>The type returned in the event of a conversion error.</p>
+    </div></details><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.try_from"><span class="rightside"><span class="since" title="const unstable">const: <a href="https://github.com/rust-lang/rust/issues/88674" title="Tracking issue for const_convert">unstable</a></span> · <a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#604">source</a></span><a class="anchor" href="#method.try_from"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html#tymethod.try_from">try_from</a>(value: U) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;T, &lt;T as <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;U&gt;&gt;::<a class="associatedtype" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html#associatedtype.Error" title="type core::convert::TryFrom::Error">Error</a>&gt;</h4></section></summary><div class='docblock'><p>Performs the conversion.</p>
+    </div></details></div></details><details class="rustdoc-toggle implementors-toggle"><summary><section class="impl has-srclink" id="impl-TryInto%3CU%3E"><span class="rightside"><a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#583-592">source</a></span><a class="anchor" href="#impl-TryInto%3CU%3E"></a><h3 class="code-header in-band">impl&lt;T, U&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryInto.html" title="trait core::convert::TryInto">TryInto</a>&lt;U&gt; for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;U: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;T&gt;,&nbsp;</span></h3></section></summary><div class="impl-items"><details class="rustdoc-toggle" open><summary><section class="associatedtype trait-impl has-srclink" id="associatedtype.Error-1"><a class="anchor" href="#associatedtype.Error-1"></a><h4 class="code-header">type <a class="associatedtype" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryInto.html#associatedtype.Error">Error</a> = &lt;U as <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;T&gt;&gt;::<a class="associatedtype" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html#associatedtype.Error" title="type core::convert::TryFrom::Error">Error</a></h4></section></summary><div class='docblock'><p>The type returned in the event of a conversion error.</p>
+    </div></details><details class="rustdoc-toggle method-toggle" open><summary><section class="method trait-impl has-srclink" id="method.try_into"><span class="rightside"><span class="since" title="const unstable">const: <a href="https://github.com/rust-lang/rust/issues/88674" title="Tracking issue for const_convert">unstable</a></span> · <a class="srclink" href="https://doc.rust-lang.org/nightly/src/core/convert/mod.rs.html#589">source</a></span><a class="anchor" href="#method.try_into"></a><h4 class="code-header">fn <a class="fnname" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryInto.html#tymethod.try_into">try_into</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;U, &lt;U as <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html" title="trait core::convert::TryFrom">TryFrom</a>&lt;T&gt;&gt;::<a class="associatedtype" href="https://doc.rust-lang.org/nightly/core/convert/trait.TryFrom.html#associatedtype.Error" title="type core::convert::TryFrom::Error">Error</a>&gt;</h4></section></summary><div class='docblock'><p>Performs the conversion.</p>
+    </div></details></div></details></div></section><section class="content hidden" id="search"></section></div></main><div data-current-crate="html_parser" data-resource-suffix="-20220420-1.62.0-nightly-879aff385" data-root-path="../" data-rustdoc-version="1.62.0-nightly (879aff385 2022-04-20)" data-themes="ayu,dark,light" id="rustdoc-vars" ></div>
+</div></body></html>
