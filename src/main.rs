@@ -1,3 +1,5 @@
+use std::fs;
+use std::fs::File;
 use html_parser::{Dom, Node, Element};
 use scraper::{Html, Selector};
 use html5ever::driver::ParseOpts;
@@ -6,6 +8,23 @@ use html5ever::tree_builder::TreeBuilderOpts;
 use html5ever::{parse_document, serialize};
 
 fn main() {
+    let dir_name = "/home/andriim/Documents/";
+    let dir = fs::read_dir(dir_name);
+    match dir {
+        Ok(dir) => println!("{:?}", {
+            dir.for_each(|item| {
+               // println!("{:?}", item.unwrap().file_name());
+                let f_name = item.unwrap().file_name();
+                let file_res = File::open(format!("{}{}", dir_name,f_name.to_str().unwrap().to_string()));
+                match file_res {
+                    Ok(file) => {println!("{:?}", file)},
+                    Err(err) => {println!("{:?}", err)}
+                }
+
+            });
+        }),
+        Err(err) => println!("{err}"),
+    }
 
     let html_str = r#"
             <!doctype html>
